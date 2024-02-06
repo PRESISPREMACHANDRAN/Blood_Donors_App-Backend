@@ -25,7 +25,11 @@ app.post("/add",async(req,res)=>{
 res.json({"status":"success","data":result})
 })
 
-
+// viewAll
+app.post("/viewAll", async(req, res) => {
+  let result=await donorModel.find()
+  res.json({ status: "success", data: result });
+});
 
 
 app.listen(4000, () => {
