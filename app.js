@@ -32,6 +32,13 @@ app.post("/viewAll", async(req, res) => {
 });
 
 
+// search donors
+app.post("/search",async(req,res)=>{
+var data=req.body
+let result=await donorModel.find(data)
+res.json({"status":"success","data":result})
+})
+
 app.listen(4000, () => {
   console.log("server starts running.....");
 });
