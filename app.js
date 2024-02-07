@@ -39,6 +39,21 @@ let result=await donorModel.find(data)
 res.json({"status":"success","data":result})
 })
 
+app.post("/delete",async(req,res)=>{
+var data=req.body
+
+let result=await donorModel.deleteOne(data)
+
+if (result.deletedCount===0) {
+  res.json({ status: "failed"});
+} else {
+  res.json({ status: "success"});
+}
+
+})
+
+
+
 app.listen(4000, () => {
   console.log("server starts running.....");
 });
